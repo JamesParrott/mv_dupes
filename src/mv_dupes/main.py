@@ -12,9 +12,13 @@ def main(args=sys.argv[1:]):
 
     file_paths_and_mtimes = collections.defaultdict(list)
 
-    for path in pathlib.Path.cwd().iterdir():
-        if not path.is_file():
-            continue
+    file_paths = [path for path in pathlib.Path.cwd().iterdir() if path.is_file()]
+
+    print_every = min(50, len(file_paths) // 10)
+
+    for i, path in enumerate(file_paths, start=1):
+        if i % print_every == 0:
+            print(f"Hash digest calculated for ({i}/{len(file_paths)}) files. ")
         with path.open("rb") as f:
             digest = hashlib.file_digest(f, "sha256")
         file_paths_and_mtimes[digest.hexdigest()].append((path, path.stat().st_mtime))
