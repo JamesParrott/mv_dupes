@@ -1,8 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "mv-dupes"
 version = "0.1.0"
 description = "Moves all except oldest and most recent duplicate files (same SHA256) to a directory."
-readme = "README.md"
+authors = [{name = "James Parrott", email = "james.parrott@proton.me"}]
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
 requires-python = ">=3.11"
 dependencies = []
 
@@ -10,6 +16,7 @@ dependencies = []
 mv-dupes = "mv_dupes.main:main"
 mv_dupes = "mv_dupes.main:main"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[project.urls]   
+"Homepage" = "https://github.com/JamesParrott/mv_dupes"
+"Bug Tracker" = "https://github.com/JamesParrott/mv_dupes/issues"
+
