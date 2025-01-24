@@ -24,7 +24,7 @@ def main(args=sys.argv[1:]):
         file_paths_and_mtimes[digest.hexdigest()].append((path, path.stat().st_mtime))
 
     for hex_digest, files_and_mtimes in file_paths_and_mtimes.items():
-        files_and_mtimes.sort(lambda tuple_: tuple_[1])
+        files_and_mtimes.sort(key=lambda tuple_: tuple_[1])
 
         destination = destination_root / hex_digest
         destination.mkdir(parents=True, exist_ok=True)
