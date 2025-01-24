@@ -28,7 +28,7 @@ def main(args=sys.argv[1:]):
 
         destination = destination_root / hex_digest
         destination.mkdir(parents=True, exist_ok=True)
-        j=0
+        j = 0
         for j, (file_path, mtime) in enumerate(files_and_mtimes[1:-1], start=1):
             shutil.move(file_path, destination)
         if j > 0:
