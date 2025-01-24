@@ -28,9 +28,11 @@ def main(args=sys.argv[1:]):
 
         destination = destination_root / hex_digest
         destination.mkdir(parents=True, exist_ok=True)
-        for i, (file_path, mtime) in enumerate(files_and_mtimes[1:-1], start=1):
+        j=0
+        for j, (file_path, mtime) in enumerate(files_and_mtimes[1:-1], start=1):
             shutil.move(file_path, destination)
-        print(f"Moved {i} file(s) to {destination}")
+        if j > 0:
+            print(f"Moved {j} file(s) to {destination}")
 
 
 if __name__ == "__main__":
