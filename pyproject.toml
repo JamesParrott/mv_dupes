@@ -1,0 +1,15 @@
+[project]
+name = "mv-dupes"
+version = "0.1.0"
+description = "Moves all except oldest and most recent duplicate files (same SHA256) to a directory."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mv-dupes = "mv_dupes.main:main"
+mv_dupes = "mv_dupes.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
